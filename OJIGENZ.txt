@@ -1,0 +1,304 @@
+
+#!/bin/bash
+# OJI-GENZ SYSTEM PREMIUM v2 + DDOS UPDATE
+# Jangan hapus hak cipta, hargai karya orang!
+
+# WARNA
+white='\033[1;37m'
+green='\033[1;32m'
+red='\033[1;31m'
+cyan='\033[1;36m'
+yellow='\033[1;33m'
+purple='\033[1;35m'
+blue='\033[1;34m'
+reset='\033[0m'
+
+# REPO URL (ganti ke repo kamu kalau mau)
+repo_url="https://raw.githubusercontent.com/ojigenz/auto-update/main/oji-genz.sh"
+
+# FUNCTION AUTO UPDATE
+auto_update() {
+    echo -e "${yellow}[•] Mengecek update terbaru...${reset}"
+    sleep 1
+    curl -s --head "$repo_url" | grep "200 OK" > /dev/null
+    if [[ $? -eq 0 ]]; then
+        echo -e "${green}[✓] Update tersedia! Mendownload...${reset}"
+        curl -o "$0" "$repo_url"
+        echo -e "${cyan}[•] Update berhasil, restart script..>
+        sleep 2
+        chmod +x "$0"
+        exec "$0"
+        exit
+    else
+        echo -e "${green}[✓] Tidak ada update, lanjut...${reset}"
+    fi
+}
+
+# JALANKAN AUTO UPDATE
+auto_update
+
+# =========================
+# TAMPILAN AWAL
+# =========================
+clear
+echo -e "${green}"
+echo "╔═════════════════════════════════════════╗"
+echo "║       WELCOME TO OJI-GENZ SYSTEM          ║"
+echo "║          PREMIUM HACK SYSTEM             ║"
+echo "╚═════════════════════════════════════════╝"
+sleep 2
+
+# Follow TikTok
+echo -e "$white"
+echo "[!] Follow TikTok gw dulu:"
+echo "https://tiktok.com/@itsraden1"
+sleep 2
+xdg-open https://tiktok.com/@itsraden1 > /dev/null 2>&1
+sleep 10
+
+# Join WhatsApp
+echo "[!] Join grup WhatsApp gw dulu:"
+echo "https://chat.whatsapp.com/EUi3RcBPdUo69dKHpJDiYl"
+sleep 2
+xdg-open https://chat.whatsapp.com/EUi3RcBPdUo69dKHpJDiYl > /dev/null 2>&1
+sleep 10
+
+# =========================
+# LOADING DEVICE INFO
+# =========================
+clear
+echo -e "${cyan}[•] Detecting device..."
+for i in {1..20}; do
+    echo -ne "${purple}Loading ["
+    for j in $(seq 1 $i); do echo -n "#"; done
+    for j in $(seq $i 20); do echo -n "-"; done
+    echo -ne "] $((i*5))%\r"
+    sleep 0.15
+done
+echo
+sleep 1
+
+tanggal=$(date +"%d-%m-%Y")
+waktu=$(date +"%H:%M:%S")
+device=$(getprop ro.product.model 2>/dev/null || echo "UnknowDevice")
+ip=$(curl -s ifconfig.me)
+
+echo -e "$white"
+echo "[+] Tanggal : $tanggal"
+echo "[+] Waktu   : $waktu"
+echo "[+] Device  : $device"
+echo "[+] IP Anda : $ip"
+sleep 3
+
+# =========================
+# LOGIN SYSTEM
+# =========================
+clear
+echo -e "$cyan"
+echo "╔═════════════════════════════╗"
+echo "║  LOGIN OJI-GENZ PREMIUM      ║"
+echo "╚═════════════════════════════╝"
+echo
+
+while true; do
+    read -p "[+] Masukkan Password / Token: " auth
+
+    if [[ $auth == "oji0987654321" ]] || [[ $auth == "oji-genzjvcuHhFjfjfj6djddjjd53FfFGj5drjTjKJSE643jgYndnrhh" ]]; then
+        echo -e "$green"
+        echo "[✓] Login berhasil!"
+        sleep 2
+        break
+    else
+        echo -e "$red"
+        echo "[x] Login gagal!"
+        echo "[!] Download token di sini:"
+        echo "| https://files.catbox.moe/9q6wbc.txt |"
+        echo
+        echo "[1] Coba Lagi"
+        echo "[2] Keluar"
+        read -p "[+] Pilih: " pilihlogin
+        if [[ $pilihlogin == "2" ]]; then
+            exit
+        fi
+    fi
+done
+
+# =========================
+# MENU SYSTEM
+# =========================
+
+menu_list=(
+"Hack Features"
+"DDOS Attack"
+)
+
+hack_list=(
+"Hack Facebook"
+"Hack Instagram"
+"Hack Twitter"
+"Hack TikTok"
+"Hack Gmail"
+"Hack WhatsApp"
+"Hack Telegram"
+"Bobol WiFi"
+"Spam SMS"
+"Spam WhatsApp"
+"Phishing Page Generator"
+"IP Tracker"
+"Ping of Death Attack"
+"Slowloris Attack"
+"SQL Injection"
+"Reverse Shell Generator"
+"Keylogger Python"
+"Wordlist Generator"
+"Proxy Scraper"
+"Brute Force SSH Server"
+"Admin Panel Finder"
+"Darkweb Crawler"
+"Anonymous Email Sender"
+"Secure Notes Tool"
+)
+
+ddos_list=(
+"UDP Flood Attack"
+"TCP SYN Flood"
+"ICMP Flood"
+"HTTP GET Flood"
+"HTTP POST Flood"
+"Slowloris Attack"
+"PPS Flood"
+"Amplification Attack"
+"Smurf Attack"
+"DNS Flood"
+)
+
+# Function: Loading efek
+loading_proses() {
+    for p in {1..5}; do
+        warna=($red $green $cyan $yellow $purple)
+        echo -ne "${warna[$((RANDOM%5))]}Loading $((p*20))%...\r"
+        sleep 0.8
+    done
+    echo
+}
+
+# Function: Tampilkan Menu
+show_menu() {
+clear
+    echo -e "$white"
+    echo "╔══════════════════════════════════╗"
+    echo "║          MENU UTAMA               ║"
+    echo "╚══════════════════════════════════╝"
+    echo
+    for i in "${!menu_list[@]}"; do
+        warna=($red $green $cyan $yellow $purple $blue)
+        echo -e "${warna[$((RANDOM%6))]}[$((i+1))] ${menu_list[$i]}${reset}"
+    done
+    echo -e "$red[0] Keluar${reset}"
+    echo
+}
+
+# Function: Show Hack Menu
+show_hack_menu() {
+    clear
+    echo -e "$white"
+    echo "╔══════════════════════════════════╗"
+    echo "║         HACK FEATURES             ║"
+    echo "╚══════════════════════════════════╝"
+    echo
+    for i in "${!hack_list[@]}"; do
+        warna=($red $green $cyan $yellow $purple $blue)
+        echo -e "${warna[$((RANDOM%6))]}[$((i+1))] ${hack_list[$i]}${reset}"
+    done
+    echo -e "$red[0] Kembali${reset}"
+    echo
+}
+
+# Function: Show DDOS Menu
+show_ddos_menu() {
+    clear
+    echo -e "$white"
+    echo "╔══════════════════════════════════╗"
+    echo "║          DDOS ATTACK              ║"
+    echo "╚══════════════════════════════════╝"
+    echo
+    for i in "${!ddos_list[@]}"; do
+        warna=($red $green $cyan $yellow $purple $blue)
+        echo -e "${warna[$((RANDOM%6))]}[$((i+1))] ${ddos_list[$i]}${reset}"
+    done
+    echo -e "$red[0] Kembali${reset}"
+echo
+}
+
+# Function: DDOS Attack Dummy
+ddos_attack() {
+    read -p "[+] Target IP / Domain: " target
+    read -p "[+] Target Port: " port
+    echo -e "$yellow[•] Memulai serangan ke $target di port $port ...${reset}"
+    sleep 2
+
+    trap ctrl_c INT
+    ctrl_c() {
+        echo -e "$red\n[!] Serangan dihentikan.${reset}"
+        sleep 2
+        show_ddos_menu
+    }
+
+    while true; do
+        echo -e "${purple}[*] Mengirim paket ke $target:$port ..."
+        sleep 0.5
+    done
+}
+
+# Main Loop
+clear
+show_menu
+
+while true; do
+    read -p "[+] Pilih Menu: " pilih
+
+    case $pilih in
+        1)
+            show_hack_menu
+            while true; do
+                read -p "[+] Pilih Hack Feature atau ketik 0 untuk kembali: " pilihhack
+                if [[ $pilihhack == "0" ]]; then
+                    show_menu
+                    break
+                elif [[ $pilihhack =~ ^[0-9]+$ ]] && (( pilihhack >=1 && pilihhack <=${#hack_list[@]} )); then
+                    clear
+                    echo -e "$cyan"
+                    echo "[•] Menjalankan: ${hack_list[$((pilihhack-1))]} ..."
+                    loading_proses
+                     echo -e "$green"
+                    echo "[✓] ${hack_list[$((pilihhack-1))]} berhasil diproses!"
+                    echo -e "$yellow[Ketik angka untuk pilih lagi atau 0 untuk kembali]${reset}"
+                else
+                    echo -e "$red[x] Input salah!${reset}"
+                fi
+            done
+        ;;
+        2)
+            show_ddos_menu
+            while true; do
+                read -p "[+] Pilih DDOS Attack atau ketik 0 untuk kembali: " pilihddos
+                if [[ $pilihddos == "0" ]]; then
+                    show_menu
+                    break
+                elif [[ $pilihddos =~ ^[0-9]+$ ]] && (( pilihddos >=1 && pilihddos <=${#ddos_list[@]} )); then
+                    ddos_attack
+                else
+                    echo -e "$red[x] Input salah!${reset}"
+                fi
+            done
+        ;;
+        0)
+            echo -e "$red[!] Keluar dari program...${reset}"
+            sleep 2
+            exit
+        ;;
+        *)
+            echo -e "$red[x] Input salah!${reset}"
+        ;;
+    esac
+done
